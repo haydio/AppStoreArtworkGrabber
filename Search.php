@@ -60,13 +60,10 @@
 
 if(!empty($_POST['search'])){
 
-#$search=preg_replace("/ /","+",$search);
- 
-//We assign the values to their own variables and
-//make sure they are a number with int()
+
 $app_id = intval($variables[1]);
 
-    $app_uri    = "http://itunes.apple.com/search?entity=software&term=" .str_replace(" ", "+", $search);
+    $app_uri    = "http://itunes.apple.com/search?entity=software&term=" .urlencode( $search);
     $data       = file_get_contents ($app_uri);
     $json       = json_decode (trim($data));
 
