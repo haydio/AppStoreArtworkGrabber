@@ -109,12 +109,13 @@ echo "</table></br>";
    $mtime = explode(" ",$mtime); 
    $mtime = $mtime[1] + $mtime[0]; 
    $endtime = $mtime; 
-   $totaltime = ($endtime - $starttime); 
+   $totaltime = ($endtime - $starttime);
+   $ssearch = htmlspecialchars($search);
 
 echo "
 <!-- 
 ~~~~~***~~~~Diagnostics~~~~***~~~~~~
-	Search Term: $search
+	Search Term: $ssearch
 	Search URL: $app_uri
 	Number of results: $resultCount
 	Page creation time: $totaltime seconds
