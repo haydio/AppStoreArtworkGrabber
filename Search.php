@@ -2,6 +2,11 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+    
+    	<!-- Made with love by haydio
+	   		http://hayd.io
+	   	-->	
+    
         <meta http-equiv="content-type" content="text/html; charset=UTF-8"> 
         <meta charset="utf-8">
         <title>AppStore Artwork Grabber</title>
@@ -49,7 +54,7 @@
   
   <div class="text-center">
     <h1>
-    <form action="search.php" method="post"> 
+    <form action="" method="post"> 
 <input name="search" type="text" value="<?php echo "$search"; ?>" size="25" /> 
 <input type="submit" value="Search"/>
 </form>
@@ -111,7 +116,7 @@ echo "
 -->";
 }
 ?>    
-	    
+ 
     </p>
   </div>
   
@@ -122,12 +127,6 @@ echo "
 
         <script type='text/javascript' src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 
-
-
-
-
-
-        
         <!-- JavaScript jQuery code from Bootply.com editor  -->
         
         <script type='text/javascript'>
