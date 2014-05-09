@@ -1,5 +1,6 @@
 <?php
-	$search = $_POST['search'];
+	$search = filter_var($_POST['search'],FILTER_SANITIZE_SPECIAL_CHARS);
+
 	$mtime = microtime(); 
 	$mtime = explode(" ",$mtime); 
 	$mtime = $mtime[1] + $mtime[0]; 
@@ -112,12 +113,12 @@ echo "</table></br>";
 
 echo "
 <!-- 
-~~~~~~***~~~~Diagnostics~~~~***~~~~~~
+~~~~~***~~~~Diagnostics~~~~***~~~~~~
 	Search Term: $search
 	Search URL: $app_uri
 	Number of results: $resultCount
 	Page creation time: $totaltime seconds
-~~~~~~***~~~~Diagnostics~~~~***~~~~~~
+~~~~~***~~~~Diagnostics~~~~***~~~~~~
 -->";
 
 }
