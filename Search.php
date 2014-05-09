@@ -75,15 +75,14 @@ $app_id = intval($variables[1]);
 $resultNumber = 0;
 
 $resultCount = ($json->resultCount);
-
+echo "<table width='100%' border='0'>";
 
 while ($i++ < $resultCount)
 {
 
-echo "<table width='100%' border='0'>
-
-  <tr>
-    <td width='59px'>";
+echo "
+	<tr>
+    <td width='59px' height='59px'>";
     echo "<img src='";
     print($json->results[$resultNumber]->artworkUrl60);
 echo "' width='57px' height='57px' />";
@@ -99,24 +98,21 @@ echo "</td>";
     echo "<td width='200'><b><a href='";
     print($json->results[$resultNumber]->artworkUrl512);
     echo "' />Large icon download</a></b></td>";
-  echo "</tr>";
-echo "</table></br>";
+    echo "</tr>";
 
 $resultNumber++;
     
 }
-
-echo "
-<!-- 
-~~~~~~***~~~~Diagnostics~~~~***~~~~~~
-	Search Term: $search
-	Search URL: $app_uri
-	Number of results: $resultCount
-~~~~~~***~~~~Diagnostics~~~~***~~~~~~
--->";
+echo "</table></br>";
 }
 ?>    
- 
+ <!-- 
+~~~~~~***~~~~Diagnostics~~~~***~~~~~~
+	Search Term: <?php echo $search; ?>
+	Search URL: <?php echo $app_uri; ?>
+	Number of results: <?php echo $resultCount; ?>
+~~~~~~***~~~~Diagnostics~~~~***~~~~~~
+-->
     </p>
   </div>
   
@@ -132,9 +128,7 @@ echo "
         <script type='text/javascript'>
         
         $(document).ready(function() {
-        
-            
-        
+ 
         });
         
         </script>
