@@ -67,7 +67,7 @@
 	<?php
 if(!empty($_POST['search'])){
 
-    $app_uri    = "http://itunes.apple.com/search?entity=software&term=" .urlencode($search);
+    $app_uri    = "http://itunes.apple.com/search?entity=software,iPadSoftware&term=" .urlencode($search);
     $data       = file_get_contents ($app_uri);
     $json       = json_decode (trim($data));
 
