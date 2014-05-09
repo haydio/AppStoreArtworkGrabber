@@ -71,33 +71,33 @@ if(!empty($_POST['search'])){
     $data       = file_get_contents ($app_uri);
     $json       = json_decode (trim($data));
 
-$resultNumber = 0;
+    $resultNumber = 0;
 
-$resultCount = ($json->resultCount);
-echo "<table width='100%' border='0'>";
+    $resultCount = ($json->resultCount);
+    
+    echo "<table width='100%' border='0'>";
 
 while ($i++ < $resultCount)
 {
 
-echo "
-	<tr>
-    <td width='59px' height='59px'>";
-    echo "<img src='";
-    print($json->results[$resultNumber]->artworkUrl60);
-echo "' width='57px' height='57px' />";
-echo "</td>";
-    echo "<td width='299'><a href='";
-    print($json->results[$resultNumber]->trackViewUrl);
-    echo "'>";
-    print($json->results[$resultNumber]->trackName);
-    echo "</a></td>";
-    echo "<td width='200'><b><a href='";
-    print($json->results[$resultNumber]->artworkUrl60);
-    echo "' />Small icon download</a></b></td>";
-    echo "<td width='200'><b><a href='";
-    print($json->results[$resultNumber]->artworkUrl512);
-    echo "' />Large icon download</a></b></td>";
-    echo "</tr>";
+		echo "<tr>
+			<td width='59px' height='59px'>";
+			echo "<img src='";
+			print($json->results[$resultNumber]->artworkUrl60);
+			echo "' width='57px' height='57px' />";
+			echo "</td>";
+			echo "<td width='299'><a href='";
+			print($json->results[$resultNumber]->trackViewUrl);
+			echo "'>";
+			print($json->results[$resultNumber]->trackName);
+			echo "</a></td>";
+			echo "<td width='200'><b><a href='";
+			print($json->results[$resultNumber]->artworkUrl60);
+			echo "' />Small icon download</a></b></td>";
+			echo "<td width='200'><b><a href='";
+			print($json->results[$resultNumber]->artworkUrl512);
+			echo "' />Large icon download</a></b></td>";
+		echo "</tr>";
 
 $resultNumber++;
     
