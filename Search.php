@@ -1,5 +1,5 @@
 <?php
-	$search = $_POST['search'];
+	$search = $_GET['search'];
 	$mtime = microtime(); 
 	$mtime = explode(" ",$mtime); 
 	$mtime = $mtime[1] + $mtime[0]; 
@@ -57,7 +57,7 @@
   
   <div class="text-center">
     <h1>
-    <form action="" method="post"> 
+    <form action="" method="get"> 
 <input name="search" type="text" value="<?php echo "$search"; ?>" size="25" /> 
 <input type="submit" value="Search"/>
 </form>
@@ -65,7 +65,7 @@
     <p class="lead">
     
 	<?php
-if(!empty($_POST['search'])){
+if(!empty($_GET['search'])){
 
     $app_uri    = "http://itunes.apple.com/search?entity=software&term=" .urlencode($search);
     $data       = file_get_contents ($app_uri);
