@@ -17,10 +17,6 @@
         <!--[if lt IE 9]>
           <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
         <![endif]-->
-        <link rel="shortcut icon" href="/bootstrap/img/favicon.ico">
-        <link rel="apple-touch-icon" href="/bootstrap/img/apple-touch-icon.png">
-        <link rel="apple-touch-icon" sizes="72x72" href="/bootstrap/img/apple-touch-icon-72x72.png">
-        <link rel="apple-touch-icon" sizes="114x114" href="/bootstrap/img/apple-touch-icon-114x114.png">
         <!-- CSS code from Bootply.com editor -->
         
         <style type="text/css">
@@ -104,15 +100,18 @@ $resultNumber++;
     
 }
 echo "</table></br>";
+
+echo "
+<!-- 
+~~~~~~***~~~~Diagnostics~~~~***~~~~~~
+	Search Term: $search
+	Search URL: $app_uri
+	Number of results: $resultCount
+~~~~~~***~~~~Diagnostics~~~~***~~~~~~
+-->";
+
 }
-?>    
- <!-- 
-~~~~~~***~~~~Diagnostics~~~~***~~~~~~
-	Search Term: <?php echo $search; ?>
-	Search URL: <?php echo $app_uri; ?>
-	Number of results: <?php echo $resultCount; ?>
-~~~~~~***~~~~Diagnostics~~~~***~~~~~~
--->
+?>
     </p>
   </div>
   
