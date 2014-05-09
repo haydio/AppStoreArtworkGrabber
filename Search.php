@@ -4,7 +4,7 @@
 	$mtime = explode(" ",$mtime); 
 	$mtime = $mtime[1] + $mtime[0]; 
 	$starttime = $mtime; 
-;?> 
+?> 
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -36,7 +36,7 @@
     
     <!-- HTML code from Bootply.com editor -->
     
-    <body  >
+    <body>
         
         <div class="navbar navbar-inverse navbar-fixed-top">
   <div class="container">
@@ -65,7 +65,6 @@
     <p class="lead">
     
 	<?php
-
 if(!empty($_POST['search'])){
 
     $app_uri    = "http://itunes.apple.com/search?entity=software&term=" .urlencode($search);
