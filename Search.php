@@ -1,9 +1,16 @@
-<?php $search = $_POST['search']; ?>
+<?php
+	$search = $_POST['search'];
+	$mtime = microtime(); 
+	$mtime = explode(" ",$mtime); 
+	$mtime = $mtime[1] + $mtime[0]; 
+	$starttime = $mtime; 
+;?> 
 <!DOCTYPE html>
 <html lang="en">
     <head>
     
-    	<!-- Made with love by haydio
+    	<!-- 
+    		Made with love by @haydio
 	   		http://hayd.io
 	   	-->	
     
@@ -61,10 +68,7 @@
 
 if(!empty($_POST['search'])){
 
-
-$app_id = intval($variables[1]);
-
-    $app_uri    = "http://itunes.apple.com/search?entity=software&term=" .urlencode( $search);
+    $app_uri    = "http://itunes.apple.com/search?entity=software&term=" .urlencode($search);
     $data       = file_get_contents ($app_uri);
     $json       = json_decode (trim($data));
 
@@ -101,12 +105,19 @@ $resultNumber++;
 }
 echo "</table></br>";
 
+   $mtime = microtime(); 
+   $mtime = explode(" ",$mtime); 
+   $mtime = $mtime[1] + $mtime[0]; 
+   $endtime = $mtime; 
+   $totaltime = ($endtime - $starttime); 
+
 echo "
 <!-- 
 ~~~~~~***~~~~Diagnostics~~~~***~~~~~~
 	Search Term: $search
 	Search URL: $app_uri
 	Number of results: $resultCount
+	Page creation time: $totaltime seconds
 ~~~~~~***~~~~Diagnostics~~~~***~~~~~~
 -->";
 
