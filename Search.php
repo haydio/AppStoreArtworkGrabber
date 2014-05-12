@@ -1,5 +1,5 @@
 <?php
-	$search = filter_var($_POST['search'],FILTER_SANITIZE_SPECIAL_CHARS);
+	$search = filter_var($_GET['search'],FILTER_SANITIZE_SPECIAL_CHARS);
 
 	$mtime = microtime(); 
 	$mtime = explode(" ",$mtime); 
@@ -31,7 +31,6 @@
             body {
   padding-top: 50px;
 }
-
         </style>
     </head>
     
@@ -47,7 +46,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">AppStore Artwork Grabber</a>
+      <a class="navbar-brand" href="/">AppStore Artwork Grabber</a>
     </div>
     <div class="collapse navbar-collapse">
     </div><!--/.nav-collapse -->
@@ -57,16 +56,15 @@
 <div class="container">
   
   <div class="text-center">
-    <h1>
-    <form action="" method="post"> 
-<input name="search" type="text" value="<?php echo "$search"; ?>" size="25" /> 
-<input type="submit" value="Search"/>
-</form>
-</h1>
+    <h2>
+    	<form action="" method="GET"> 
+		<input name="search" type="text" value="<?php echo "$search"; ?>" size="15" /> 
+		<input type="submit" value="Search"/>
+	</form>
+   </h2>
     <p class="lead">
-    
 	<?php
-if(!empty($_POST['search'])){
+if(!empty($_GET['search'])){
 
     $app_uri    = "http://itunes.apple.com/search?entity=software,iPadSoftware&term=" .urlencode($search);
     $data       = file_get_contents ($app_uri);
@@ -87,17 +85,17 @@ while ($i++ < $resultCount)
 			print($json->results[$resultNumber]->artworkUrl60);
 			echo "' width='57px' height='57px' />";
 			echo "</td>";
-			echo "<td width='299'><a href='";
+			echo "<td width='150px'><a href='";
 			print($json->results[$resultNumber]->trackViewUrl);
 			echo "'>";
 			print($json->results[$resultNumber]->trackName);
 			echo "</a></td>";
-			echo "<td width='200'><b><a href='";
+			echo "<td width='200px'><b><a href='";
 			print($json->results[$resultNumber]->artworkUrl60);
-			echo "' />Small icon download</a></b></td>";
-			echo "<td width='200'><b><a href='";
+			echo "' />Small Icon</a></b></td>";
+			echo "<td width='200px'><b><a href='";
 			print($json->results[$resultNumber]->artworkUrl512);
-			echo "' />Large icon download</a></b></td>";
+			echo "' />Large Icon</a></b></td>";
 		echo "</tr>";
 
 $resultNumber++;
@@ -125,7 +123,6 @@ echo "
 ?>
     </p>
   </div>
-  
 </div><!-- /.container -->
         
         <script type='text/javascript' src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
