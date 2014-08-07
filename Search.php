@@ -66,8 +66,20 @@
 	<?php
 if(!empty($_GET['search'])){
 
+<<<<<<< HEAD
+    if (apc_exists($search)) {
+    $data = apc_fetch($search);
+    $apcUsed = Yes;
+} else {
+=======
+>>>>>>> FETCH_HEAD
     $app_uri    = "http://itunes.apple.com/search?entity=software,iPadSoftware,macSoftware&term=" .urlencode($search);
     $data       = file_get_contents ($app_uri);
+    apc_store($search, $data, 3600);
+    
+    $apcUsed = No;
+}
+    
     $json       = json_decode (trim($data));
 
     $resultNumber = 0;
@@ -111,12 +123,13 @@ echo "</table></br>";
 
 echo "
 <!-- 
-~~~~~***~~~~Diagnostics~~~~***~~~~~~
+~~~~***~~~~Diagnostics~~~~***~~~~~~
 	Search Term: $search
-	Search URL: $app_uri
+	Search URL: $app_uri (If request was cached this will be blank)
+	APC Used: $apcUsed
 	Number of results: $resultCount
 	Page creation time: $totaltime seconds
-~~~~~***~~~~Diagnostics~~~~***~~~~~~
+~~~~***~~~~Diagnostics~~~~***~~~~~~
 -->";
 
 }
