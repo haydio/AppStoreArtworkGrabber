@@ -13,6 +13,7 @@
     	<!-- 
     		Made with love by @haydio
 	   		http://hayd.io
+	   			https://github.com/haydio/AppStoreArtworkGrabber/
 	   	-->	
     
         <meta http-equiv="content-type" content="text/html; charset=UTF-8"> 
@@ -66,13 +67,10 @@
 	<?php
 if(!empty($_GET['search'])){
 
-<<<<<<< HEAD
     if (apc_exists($search)) {
     $data = apc_fetch($search);
     $apcUsed = Yes;
 } else {
-=======
->>>>>>> FETCH_HEAD
     $app_uri    = "http://itunes.apple.com/search?entity=software,iPadSoftware,macSoftware&term=" .urlencode($search);
     $data       = file_get_contents ($app_uri);
     apc_store($search, $data, 3600);
